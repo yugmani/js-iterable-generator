@@ -2,6 +2,8 @@
 import './style.css';
 
 // Iterables and iterators in JavaScript
+// ***************************************
+
 const obj = {
   [Symbol.iterator]: function () {
     let step = 0;
@@ -26,3 +28,28 @@ for (const word of obj) {
 
 //Hello
 //World
+
+// Javascript generators
+// ************************
+
+function normalFunction() {
+  console.log('Hello');
+  console.log('World');
+}
+
+normalFunction();
+normalFunction();
+
+function* generatorFunction() {
+  yield 'Hello';
+  yield 'World';
+}
+
+const generatorObject = generatorFunction();
+
+for (const word of generatorObject) {
+  console.log('Generator: ' + word);
+}
+
+//Generator: Hello
+//Generator: World
